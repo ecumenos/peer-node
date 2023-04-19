@@ -1,0 +1,2 @@
+# unset the diff attribute on the vendor folder.
+vendor/** -diff

@@ -1,0 +1,40 @@
+run:
+  build-tags:
+    - integration
+    - endToEnd
+  skip-dirs:
+    - mocks
+  timeout: 2m
+
+linters:
+  disable-all: true
+  enable:
+    # Golangci-lint defaults
+    - errcheck
+    - goimports
+    - gosimple
+    - govet
+    - ineffassign
+    - revive
+    - staticcheck
+    - unused
+    - typecheck
+
+    # Optional
+    - exhaustive
+
+linters-settings:
+  goimports:
+    local-prefixes: gitlab.com/uworlder
+  exhaustive:
+    check:
+      - switch
+      - map
+
+issues:
+  exclude-use-default: false
+  print-issued-lines: false
+  exclude-rules:
+    - text: "package-comments: should have a package comment"
+      linters:
+        - revive
